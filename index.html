@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pro Active Safety Solutions | AI risk assessments for mining and construction</title>
+<meta name="description" content="Describe the task and get a draft risk assessment in your own Word or Excel template. Built for South African mining and construction safety teams.">
+<meta property="og:title" content="Pro Active Safety Solutions">
+<meta property="og:description" content="AI risk assessments, drafted in your own Word or Excel template. Built for South African mining and construction.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo.png">
+<meta name="theme-color" content="#2B3942">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#2B3942; --slate-deep:#1E2A31; --slate-line:#43545e;
+  --concrete:#E8EBE9; --paper:#F6F7F6; --ink:#1B242A; --muted:#566670;
+  --amber:#FFB81C; --amber-ink:#1B242A;
+  --r-low:#5E8C61; --r-med:#E3B23C; --r-high:#E07B2D; --r-ext:#C8372D;
+  --display:'Barlow Condensed','Arial Narrow',sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 var(--body);color:var(--ink);background:var(--concrete);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:.005em}
+h2{font-size:clamp(2.2rem,5vw,3.4rem);max-width:16ch}
+h3{font-size:1.5rem;line-height:1.1}
+p{max-width:62ch}
+.btn{display:inline-block;font:600 1rem/1 var(--body);padding:15px 22px;border-radius:3px;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-amber{background:var(--amber);color:var(--amber-ink)}
+.btn-amber:hover{background:#ffc84a}
+.btn-line{border-color:var(--slate-line);color:#fff}
+.btn-line:hover{border-color:#fff}
+.btn-dark{background:var(--slate);color:#fff}
+.btn-dark:hover{background:var(--slate-deep)}
+
+/* header + hero */
+.top{background:var(--slate);color:#fff}
+header.nav{display:flex;align-items:center;gap:28px;padding:14px var(--gutter);max-width:1160px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 1.25rem/1 var(--display);letter-spacing:.02em}
+.brand img{height:44px;width:auto}
+.brand span{display:block}
+.brand small{display:block;font:400 .72rem/1.2 var(--body);color:#aebbc3;letter-spacing:.04em}
+nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-size:.95rem;color:#d4dde2}
+nav a:hover{color:#fff}
+nav .btn{padding:11px 16px;color:var(--amber-ink)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center;padding:clamp(40px,7vw,88px) var(--gutter) clamp(48px,8vw,104px);max-width:1160px;margin:0 auto}
+.hero h1{font-size:clamp(3.2rem,8.2vw,6.4rem);text-transform:none}
+.hero p.lead{margin-top:22px;font-size:1.15rem;color:#d4dde2}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.fine{margin-top:18px;font-size:.88rem;color:#9fb0b9;max-width:48ch}
+
+/* risk matrix */
+.matrixwrap{justify-self:end;width:100%;max-width:470px}
+.matrix{display:grid;grid-template-columns:auto repeat(5,1fr);gap:4px;font-family:var(--display);font-weight:600}
+.matrix .ax{display:flex;align-items:center;justify-content:center;color:#9fb0b9;font-size:1rem}
+.matrix .cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:1.35rem;color:#10181d;border-radius:2px;position:relative;background:var(--slate-line)}
+.cell.low{--c:var(--r-low)} .cell.med{--c:var(--r-med)} .cell.high{--c:var(--r-high)} .cell.ext{--c:var(--r-ext);color:#fff}
+.cell{background:var(--c,var(--slate-line))}
+.cell.pick{outline:3px solid #fff;outline-offset:2px;z-index:2}
+.cell.res{outline:3px dashed #fff;outline-offset:2px;z-index:2}
+.axis-title{color:#9fb0b9;font:500 .85rem/1.3 var(--body);margin-top:8px;text-align:right}
+.axis-y{writing-mode:vertical-rl;transform:rotate(180deg);font:500 .85rem/1 var(--body);color:#9fb0b9}
+.entry{margin-top:16px;background:var(--paper);color:var(--ink);border-radius:3px;padding:16px 18px;font-size:.92rem;line-height:1.45}
+.entry b{font-family:var(--display);font-size:1.15rem;display:block;margin-bottom:4px;letter-spacing:.01em}
+.entry dl{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;margin-top:6px}
+.entry dt{color:var(--muted)}
+.entry dd{margin:0}
+.entry .tag{display:inline-block;padding:1px 8px;border-radius:2px;font-weight:600;font-size:.82rem}
+.t-high{background:var(--r-high)} .t-med{background:var(--r-med)}
+.entry small{display:block;margin-top:8px;color:var(--muted);font-size:.78rem}
+
+/* heat sweep, one-time */
+@media (prefers-reduced-motion:no-preference){
+  .cell{animation:sweep .9s ease-out both;animation-delay:calc((var(--x) + var(--y)) * 70ms)}
+  @keyframes sweep{from{background:var(--slate-line);color:transparent}60%{background:var(--slate-line);color:transparent}to{background:var(--c)}}
+}
+
+/* sections */
+section{padding:clamp(56px,8vw,104px) 0}
+.sec-head{margin-bottom:36px}
+.sec-head p{margin-top:14px;color:var(--muted)}
+.how ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:3px solid var(--ink)}
+.how li{padding:24px 28px 8px 0}
+.how li + li{padding-left:28px;border-left:1px solid #b9c3c8}
+.how li .n{font:700 3.4rem/1 var(--display);color:var(--slate)}
+.how li h3{margin:6px 0 8px}
+.how li p{color:var(--muted);font-size:.98rem}
+
+.tpl{background:var(--paper)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.tpl ul{list-style:none;padding:0;margin-top:22px;display:grid;gap:10px}
+.tpl li{padding-left:22px;position:relative}
+.tpl li:before{content:"";position:absolute;left:0;top:.7em;width:10px;height:3px;background:var(--amber);box-shadow:0 0 0 1px var(--ink)}
+.sheet{background:#fff;border:1px solid #c5ced3;font-size:.82rem;overflow-x:auto}
+.sheet table{border-collapse:collapse;width:100%;min-width:480px}
+.sheet th,.sheet td{border:1px solid #c5ced3;padding:7px 9px;text-align:left;vertical-align:top}
+.sheet thead th{background:var(--slate);color:#fff;font-weight:500}
+.sheet th.g{background:var(--slate-deep);text-align:center}
+.sheet td.n{text-align:center;font-weight:600}
+.sheet .tag{padding:1px 7px;font-weight:600;border-radius:2px}
+.sheet caption{caption-side:bottom;text-align:left;padding:9px;color:var(--muted);font-size:.76rem}
+
+.plans table{width:100%;border-collapse:collapse;background:var(--paper)}
+.plans th,.plans td{padding:18px 20px;text-align:left;border-bottom:1px solid #c5ced3}
+.plans thead th{font:500 .9rem var(--body);color:var(--muted);border-bottom:3px solid var(--ink);padding-bottom:12px}
+.plans tbody th{font:700 1.7rem/1 var(--display)}
+.plans .price{font:700 1.9rem/1 var(--display)}
+.plans .price small{font:400 .85rem var(--body);color:var(--muted)}
+.plans td .btn{padding:11px 16px;font-size:.92rem;white-space:nowrap}
+.plans tr.feat td,.plans tr.feat th{background:#fff5d6}
+.note{margin-top:18px;color:var(--muted);font-size:.93rem}
+
+.sec{background:var(--slate);color:#fff}
+.sec h2{color:#fff}
+.sec .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:12px}
+.sec h3{color:var(--amber);margin-bottom:8px}
+.sec p{color:#d4dde2;font-size:.98rem}
+.sec a{color:#fff}
+
+.rev-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.rev{background:var(--paper);padding:22px;border-left:4px solid var(--amber)}
+.rev blockquote{font-size:1.02rem}
+.rev footer{margin-top:14px;font-size:.88rem;color:var(--muted)}
+.empty{background:var(--paper);padding:clamp(22px,4vw,40px);border:2px dashed #aab6bc;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.empty h3{font-size:1.8rem;margin-bottom:6px}
+.empty p{color:var(--muted);max-width:52ch}
+
+details{border-top:1px solid #b9c3c8;padding:18px 0}
+details:last-of-type{border-bottom:1px solid #b9c3c8}
+summary{cursor:pointer;font:600 1.12rem/1.35 var(--body);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:1.4rem;line-height:1}
+details[open] summary:after{content:"\2212"}
+details p{margin-top:10px;color:var(--muted)}
+.faq-wrap{max-width:780px}
+
+.contact{background:var(--slate-deep);color:#fff}
+.contact h2{color:#fff;max-width:18ch}
+.contact p{color:#d4dde2;margin-top:14px}
+.contact .btn{margin-top:26px}
+.people{display:flex;flex-wrap:wrap;gap:20px 64px;margin-top:40px;padding-top:28px;border-top:1px solid var(--slate-line)}
+.people h3{color:var(--amber);margin-bottom:6px}
+.people p{margin-top:2px}
+.people a{color:#fff}
+footer.site{background:var(--slate-deep);color:#9fb0b9;font-size:.86rem;padding:26px 0 40px;border-top:1px solid var(--slate-line)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+footer.site a{color:#d4dde2}
+
+@media (max-width:900px){
+  .hero,.split{grid-template-columns:1fr}
+  .matrixwrap{justify-self:start}
+  .how ol,.sec .grid{grid-template-columns:1fr}
+  .how li + li{padding-left:0;border-left:0;border-top:1px solid #b9c3c8}
+  nav a.l{display:none}
+  .plans thead{display:none}
+  .plans tr{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #c5ced3;padding:14px 0}
+  .plans th,.plans td{border:0;padding:6px 16px}
+  .plans tbody th{grid-column:1/-1}
+  .plans td[data-l]:before{content:attr(data-l)": ";color:var(--muted);font-size:.85rem}
+  .plans td.go{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <header class="nav">
+    <a class="brand" href="#top" id="top"><img src="logo-mark.png" alt=""><span>Pro Active<small>Safety Solutions</small></span></a>
+    <nav aria-label="Main">
+      <a class="l" href="#how">How it works</a>
+      <a class="l" href="#templates">Templates</a>
+      <a class="l" href="#plans">Plans</a>
+      <a class="l" href="#reviews">Reviews</a>
+      <a class="btn btn-amber" href="https://deandavis2203-faido.github.io/pass-app/">Open the app</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Risk assessments in minutes, not evenings.</h1>
+      <p class="lead">Describe the task. Pro Active drafts the hazards, ratings and controls straight into the Word or Excel template your site already uses. You review it, fix it and sign it.</p>
+      <div class="cta-row">
+        <a class="btn btn-amber" href="https://deandavis2203-faido.github.io/pass-app/">Create your account</a>
+        <a class="btn btn-line" href="#plans">See plans</a>
+      </div>
+      <p class="fine">Built for South African mining and construction. Every assessment is an AI draft that a competent person must check before use.</p>
+    </div>
+
+    <div class="matrixwrap" aria-label="Example risk matrix and hazard entry">
+      <div class="matrix" id="matrix" role="img" aria-label="Five by five risk matrix. Likelihood 4 times severity 4 gives a base risk of 16, high. After controls the residual risk is 2 times 3, a 6, medium."></div>
+      <div class="axis-title">Likelihood →</div>
+      <div class="entry">
+        <b>Replacing roof sheeting at height</b>
+        <dl>
+          <dt>Base risk</dt><dd>L4 × S4 = 16 <span class="tag t-high">High</span></dd>
+          <dt>Controls</dt><dd>Fall-arrest harness on a rated anchor, edge protection, exclusion zone below</dd>
+          <dt>Residual</dt><dd>L2 × S3 = 6 <span class="tag t-med">Medium</span></dd>
+        </dl>
+        <small>Example entry. Solid outline is the base risk, dashed is after controls.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="sec-head"><h2>Three steps to a finished assessment</h2></div>
+    <ol>
+      <li><div class="n">1</div><h3>Describe the task</h3><p>Type what the crew will be doing, for example "welding on a scaffold platform near the crusher". Add the site if you want it on the document.</p></li>
+      <li><div class="n">2</div><h3>Get a draft in your format</h3><p>Hazards, likelihood, severity, base risk, controls and residual risk come back filled in, using your own columns and rating scale.</p></li>
+      <li><div class="n">3</div><h3>Review, edit, sign</h3><p>Download the Word or Excel file, adjust it with your team and sign it off. The judgement stays with your competent person.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="tpl" id="templates">
+  <div class="wrap split">
+    <div>
+      <h2>Your template, filled in</h2>
+      <p style="margin-top:14px;color:var(--muted)">Most tools make you move to their layout. This one fills yours. Upload the risk assessment your mine or company already uses and Pro Active reads its headers and completes it.</p>
+      <ul>
+        <li>Works with Word (.docx) and Excel (.xlsx) templates, including Issue Based Risk Assessment layouts.</li>
+        <li>Understands abbreviated columns such as L, S, base risk (BR) and residual risk (RR).</li>
+        <li>Numbers the rows and fills the scope, date and reference number.</li>
+        <li>Downloads as a new file. Your original template is never changed.</li>
+      </ul>
+    </div>
+    <div class="sheet">
+      <table>
+        <caption>Example of a filled template. Layouts follow whatever template you upload.</caption>
+        <thead>
+          <tr><th rowspan="2">No.</th><th rowspan="2">Hazard</th><th class="g" colspan="3">Base risk</th><th rowspan="2">Controls</th><th class="g" colspan="3">Residual</th></tr>
+          <tr><th>L</th><th>S</th><th>BR</th><th>L</th><th>S</th><th>RR</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="n">1</td><td>Fall from scaffold platform</td><td class="n">4</td><td class="n">4</td><td class="n"><span class="tag t-high">16</span></td><td>Inspected scaffold, tagged; harness on anchor point</td><td class="n">2</td><td class="n">3</td><td class="n"><span class="tag t-med">6</span></td></tr>
+          <tr><td class="n">2</td><td>Hot work sparks igniting nearby material</td><td class="n">3</td><td class="n">4</td><td class="n"><span class="tag t-high">12</span></td><td>Hot work permit, fire blanket, fire watch for 30 min</td><td class="n">1</td><td class="n">3</td><td class="n"><span class="tag" style="background:var(--r-low)">3</span></td></tr>
+          <tr><td class="n">3</td><td>Dust and fume inhalation</td><td class="n">3</td><td class="n">3</td><td class="n"><span class="tag t-med">9</span></td><td>Extraction, correct respirator, fit-test records</td><td class="n">2</td><td class="n">2</td><td class="n"><span class="tag" style="background:var(--r-low)">4</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="plans">
+  <div class="wrap">
+    <div class="sec-head"><h2>Plans for crews of every size</h2><p>Billed monthly in rand through PayFast. The account owner counts as one user. Prices are per month.</p></div>
+    <table>
+      <thead><tr><th>Plan</th><th>Per month</th><th>Assessments each month</th><th>Users</th><th></th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Starter</th><td class="price" data-l="Price">R1,500 <small>/month</small></td><td data-l="Assessments">5</td><td data-l="Users">2</td><td class="go"><a class="btn btn-dark" href="https://deandavis2203-faido.github.io/pass-app/">Choose Starter</a></td></tr>
+        <tr><th scope="row">Entry</th><td class="price" data-l="Price">R4,500 <small>/month</small></td><td data-l="Assessments">10</td><td data-l="Users">10</td><td class="go"><a class="btn btn-dark" href="https://deandavis2203-faido.github.io/pass-app/">Choose Entry</a></td></tr>
+        <tr><th scope="row">Medium</th><td class="price" data-l="Price">R5,999 <small>/month</small></td><td data-l="Assessments">25</td><td data-l="Users">15</td><td class="go"><a class="btn btn-dark" href="https://deandavis2203-faido.github.io/pass-app/">Choose Medium</a></td></tr>
+        <tr class="feat"><th scope="row">Unlimited</th><td class="price" data-l="Price">R8,999 <small>/month</small></td><td data-l="Assessments">Unlimited</td><td data-l="Users">Unlimited</td><td class="go"><a class="btn btn-amber" href="https://deandavis2203-faido.github.io/pass-app/">Choose Unlimited</a></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Unlimited also includes unlimited sites. Offline mode for Unlimited is made available as it is released. Need a different arrangement, or want to pay by EFT? <a href="mailto:proactivesafetysolutions1@outlook.com">Email us</a>.</p>
+  </div>
+</section>
+
+<section class="sec" id="security">
+  <div class="wrap">
+    <h2>Your company's data stays your company's</h2>
+    <div class="grid">
+      <div><h3>Private by default</h3><p>Every company sits in its own space. You sign in with your own account, and nobody outside your team can see your assessments.</p></div>
+      <div><h3>Limits enforced on the server</h3><p>Plan limits, user seats and access are checked on our server, not in your browser, so they can't be bypassed from the page.</p></div>
+      <div><h3>Payments handled by PayFast</h3><p>Card details go to PayFast, a South African payment provider. We never see or store them. Personal information is handled as set out in our <a href="terms.pdf">Terms and Conditions</a>, in line with POPIA.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head"><h2>What safety teams say</h2></div>
+    <div id="rev-mount"></div>
+  </div>
+</section>
+
+<section class="tpl" id="faq">
+  <div class="wrap faq-wrap">
+    <div class="sec-head"><h2>Questions</h2></div>
+    <details><summary>Does the AI replace our competent person?</summary><p>No. Every assessment is a draft. A competent person must review, correct and approve it before anyone relies on it. The app is there to remove the blank page and the typing.</p></details>
+    <details><summary>Can I use my own template?</summary><p>Yes. Upload a Word or Excel risk assessment and the app fills it in. You can also use the built-in format if you don't have one.</p></details>
+    <details><summary>How do my colleagues get access?</summary><p>The account owner adds team members by email from inside the app, up to the user limit on your plan. Each person signs in with their own login.</p></details>
+    <details><summary>Can I cancel?</summary><p>Yes. Cancellation and refund terms are in our <a href="terms.pdf">Terms and Conditions</a>.</p></details>
+    <details><summary>Does it work offline?</summary><p>Not yet. Offline mode is planned for the Unlimited plan and will be made available as it is released.</p></details>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Ready to stop typing risk assessments by hand?</h2>
+    <p>Create an account and have your first assessment drafted today. Questions before you start? Message or call us and a person will reply.</p>
+    <a class="btn btn-amber" href="https://deandavis2203-faido.github.io/pass-app/">Create your account</a>
+    <div class="people">
+      <div>
+        <h3>Dean Davis</h3>
+        <p>WhatsApp <a href="https://wa.me/27717514175">071 751 4175</a></p>
+        <p>Call <a href="tel:+27733711059">073 371 1059</a> or <a href="tel:+27717514175">071 751 4175</a></p>
+        <p><a href="mailto:proactivesafetysolutions1@outlook.com">proactivesafetysolutions1@outlook.com</a></p>
+      </div>
+      <div>
+        <h3>Annagrid Davis</h3>
+        <p>WhatsApp <a href="https://wa.me/27635361266">063 536 1266</a></p>
+        <p>Call <a href="tel:+27502008131">050 200 8131</a> or <a href="tel:+27635361266">063 536 1266</a></p>
+        <p><a href="mailto:proactivesafetysolutions2@outlook.com">proactivesafetysolutions2@outlook.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Pro Active Safety Solutions (Pty) Ltd. Registration 2025/907188/07. Steinkopf, Northern Cape, South Africa.</span>
+    <span><a href="terms.pdf">Terms and Conditions</a></span>
+  </div>
+</footer>
+
+<script>
+/* Risk matrix: x = likelihood, y = severity (5 at top) */
+(function(){
+  var m=document.getElementById('matrix'),h='';
+  for(var s=5;s>=1;s--){
+    h+='<div class="ax">'+s+'</div>';
+    for(var l=1;l<=5;l++){
+      var v=l*s,c=v>=16?'ext':v>=10?'high':v>=5?'med':'low';
+      var extra=(l===4&&s===4)?' pick':(l===2&&s===3)?' res':'';
+      h+='<div class="cell '+c+extra+'" style="--x:'+(l-1)+';--y:'+(5-s)+'">'+v+'</div>';
+    }
+  }
+  h+='<div class="ax"></div>';
+  for(var l=1;l<=5;l++)h+='<div class="ax">'+l+'</div>';
+  m.innerHTML=h;
+})();
+
+/* Reviews: only real reviews from reviews.json are ever shown */
+(function(){
+  var mount=document.getElementById('rev-mount');
+  var mail='mailto:proactivesafetysolutions1@outlook.com?subject='+encodeURIComponent('My review of Pro Active Safety Solutions')+'&body='+encodeURIComponent('Name:\nRole and company:\nYour review:\n\nI am happy for this to be shown on your website and in the app: yes / no');
+  function empty(){
+    mount.innerHTML='<div class="empty"><div><h3>No reviews yet</h3><p>We are new and we only show reviews from real customers, with their permission. Try the app and tell us what you think.</p></div><a class="btn btn-dark" href="'+mail+'">Send your review</a></div>';
+  }
+  function show(list){
+    if(!list||!list.length){empty();return;}
+    var wrap=document.createElement('div');wrap.className='rev-list';
+    list.forEach(function(r){
+      var d=document.createElement('div');d.className='rev';
+      var q=document.createElement('blockquote');q.textContent='“'+r.text+'”';
+      var f=document.createElement('footer');
+      f.textContent=[r.name,[r.role,r.company].filter(Boolean).join(', ')].filter(Boolean).join(' – ');
+      d.appendChild(q);d.appendChild(f);wrap.appendChild(d);
+    });
+    var a=document.createElement('p');a.className='note';
+    a.innerHTML='Used Pro Active? <a href="'+mail+'">Send us your review</a>.';
+    mount.appendChild(wrap);mount.appendChild(a);
+  }
+  fetch('reviews.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(j){show(j.reviews)}).catch(empty);
+})();
+</script>
+</body>
+</html>
