@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pro Active Safety Solutions | AI risk assessments for mining and construction</title>
-<meta name="description" content="Describe the task and get a draft risk assessment in your own Word or Excel template. Built for South African mining and construction safety teams.">
+<title>Pro Active Safety Solutions | Risk assessments and safety files for mining and construction</title>
+<meta name="description" content="AI risk assessments, contractor safety files, site induction packs and incident reports, all on your phone. Built for South African mining and construction.">
 <meta property="og:title" content="Pro Active Safety Solutions">
-<meta property="og:description" content="AI risk assessments, drafted in your own Word or Excel template. Built for South African mining and construction.">
+<meta property="og:description" content="Risk assessments, safety files, inductions and incident reports in minutes. Built for South African mining and construction.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="logo.png">
 <meta name="theme-color" content="#2B3942">
@@ -88,6 +88,11 @@ nav .btn{padding:11px 16px;color:var(--amber-ink)}
 
 /* sections */
 section{padding:clamp(56px,8vw,104px) 0}
+.bf{background:var(--amber);color:var(--amber-ink);text-align:center;padding:10px var(--gutter);font-weight:600;font-size:.95rem}
+.bf a{color:var(--amber-ink);text-decoration:underline}
+.sec.feat .grid{grid-template-columns:repeat(3,1fr);row-gap:36px}
+.sec.feat .lead2{color:#d4dde2;margin-top:12px;max-width:60ch}
+.dl{display:inline-block;margin-top:14px}
 .sec-head{margin-bottom:36px}
 .sec-head p{margin-top:14px;color:var(--muted)}
 .how ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:3px solid var(--ink)}
@@ -160,7 +165,7 @@ footer.site a{color:#d4dde2}
 @media (max-width:900px){
   .hero,.split{grid-template-columns:1fr}
   .matrixwrap{justify-self:start}
-  .how ol,.sec .grid{grid-template-columns:1fr}
+  .how ol,.sec .grid,.sec.feat .grid{grid-template-columns:1fr}
   .how li + li{padding-left:0;border-left:0;border-top:1px solid #b9c3c8}
   nav a.l{display:none}
   .plans thead{display:none}
@@ -174,11 +179,13 @@ footer.site a{color:#d4dde2}
 </head>
 <body>
 
+<div class="bf" id="bf" hidden>Black Friday: 30% off your first month, 23 to 29 November. WhatsApp BLACK FRIDAY to <a href="https://wa.me/27502008131?text=BLACK%20FRIDAY">050 200 8131</a>.</div>
 <div class="top">
   <header class="nav">
     <a class="brand" href="#top" id="top"><img src="logo-mark.png" alt=""><span>Pro Active<small>Safety Solutions</small></span></a>
     <nav aria-label="Main">
       <a class="l" href="#how">How it works</a>
+      <a class="l" href="#features">Features</a>
       <a class="l" href="#templates">Templates</a>
       <a class="l" href="#plans">Plans</a>
       <a class="l" href="#reviews">Reviews</a>
@@ -188,11 +195,11 @@ footer.site a{color:#d4dde2}
 
   <div class="hero">
     <div>
-      <h1>Risk assessments in minutes, not evenings.</h1>
-      <p class="lead">Describe the task. Pro Active drafts the hazards, ratings and controls straight into the Word or Excel template your site already uses. You review it, fix it and sign it.</p>
+      <h1>Safety paperwork in minutes, not evenings.</h1>
+      <p class="lead">Describe the task. Pro Active drafts your risk assessment, builds your contractor safety file, and prepares your site induction pack and incident reports. All on your phone, on your own letterhead. You review it, fix it and sign it.</p>
       <div class="cta-row">
         <a class="btn btn-amber" href="https://deandavis2203-faido.github.io/pass-app/">Create your account</a>
-        <a class="btn btn-line" href="#plans">See plans</a>
+        <a class="btn btn-line" href="#features">See what is inside</a>
       </div>
       <p class="fine">Built for South African mining and construction. Every assessment is an AI draft that a competent person must check before use.</p>
     </div>
@@ -222,6 +229,22 @@ footer.site a{color:#d4dde2}
       <li><div class="n">2</div><h3>Get a draft in your format</h3><p>Hazards, likelihood, severity, base risk, controls and residual risk come back filled in, using your own columns and rating scale.</p></li>
       <li><div class="n">3</div><h3>Review, edit, sign</h3><p>Download the Word or Excel file, adjust it with your team and sign it off. The judgement stays with your competent person.</p></li>
     </ol>
+  </div>
+</section>
+
+<section class="sec feat" id="features">
+  <div class="wrap">
+    <h2>Everything a contractor needs to get on site</h2>
+    <p class="lead2">One app for the paperwork mines and main contractors ask for. Every document carries your company name, logo and letterhead.</p>
+    <div class="grid">
+      <div><h3>Risk assessments</h3><p>Describe the job and get hazards, ratings and controls drafted in minutes. Export to Excel, or fill your own Word or Excel template.</p></div>
+      <div><h3>Safety file builder</h3><p>A full contractor safety file, sections 1 to 10, with documents, registers and forms. Upload what you have and let the AI write the rest.</p></div>
+      <div><h3>Site and visitor induction</h3><p>A ready induction pack with your site drawing, emergency numbers and rules, plus an attendance register for visitors and new employees.</p></div>
+      <div><h3>Incident reports</h3><p>Record the incident, add photos, and work through the 5 Whys to the root cause. Corrective actions and follow-up included. Download it on your letterhead.</p></div>
+      <div><h3>Dashboard and expiry warnings</h3><p>See your sites and documents at a glance. The app warns you before certificates and documents expire.</p></div>
+      <div><h3>Safety assistant</h3><p>Ask a safety question and get a clear answer, any time of the day.</p></div>
+    </div>
+    <p class="lead2" style="margin-top:36px">Safety file, induction pack and incident reports are on the Entry plan and above. <a class="dl" href="Pro_Active_App_Guide.pdf">Download the app guide (PDF)</a></p>
   </div>
 </section>
 
@@ -266,6 +289,7 @@ footer.site a{color:#d4dde2}
         <tr class="feat"><th scope="row">Unlimited</th><td class="price" data-l="Price">R8,999 <small>/month</small></td><td data-l="Assessments">Unlimited</td><td data-l="Users">Unlimited</td><td data-l="Safety files">Unlimited</td><td class="go"><a class="btn btn-amber" href="https://deandavis2203-faido.github.io/pass-app/">Choose Unlimited</a></td></tr>
       </tbody>
     </table>
+    <p class="note"><b>Black Friday, 23 to 29 November:</b> 30% off your first month on any plan, paid by EFT. WhatsApp BLACK FRIDAY to <a href="https://wa.me/27502008131?text=BLACK%20FRIDAY">050 200 8131</a>.</p>
     <p class="note">Unlimited also includes unlimited sites and offline mode, so the app keeps working when there is no signal on site. Need a different arrangement, or want to pay by EFT? <a href="mailto:proactivesafetysolutions1@outlook.com">Email us</a>.</p>
   </div>
 </section>
@@ -294,6 +318,8 @@ footer.site a{color:#d4dde2}
     <details><summary>Does the AI replace our competent person?</summary><p>No. Every assessment is a draft. A competent person must review, correct and approve it before anyone relies on it. The app is there to remove the blank page and the typing.</p></details>
     <details><summary>Can I use my own template?</summary><p>Yes. Upload a Word or Excel risk assessment and the app fills it in. You can also use the built-in format if you don't have one.</p></details>
     <details><summary>How do my colleagues get access?</summary><p>The account owner adds team members by email from inside the app, up to the user limit on your plan. Each person signs in with their own login.</p></details>
+    <details><summary>What is in the safety file?</summary><p>A full contractor safety file with ten sections, from company documents and legal appointments to registers, forms, a site induction pack and incident reports. The AI writes what you do not have yet, and you upload the rest. Everything is built on your letterhead.</p></details>
+    <details><summary>Can I pay by EFT?</summary><p>Yes. Message us on WhatsApp, pay by EFT, and we activate your plan once the payment is confirmed. You can also pay by card through PayFast.</p></details>
     <details><summary>Can I cancel?</summary><p>Yes. Cancellation and refund terms are in our <a href="terms.pdf">Terms and Conditions</a>.</p></details>
     <details><summary>Does it work offline?</summary><p>Yes, on the Unlimited plan. Install the app on your phone and it opens without signal. You can read saved assessments and safety files, and write new assessments that are saved on your phone and generated automatically when signal returns. Uploading documents and AI drafting need signal.</p></details>
   </div>
@@ -325,10 +351,14 @@ footer.site a{color:#d4dde2}
 <footer class="site">
   <div class="wrap">
     <span>Pro Active Safety Solutions (Pty) Ltd. Registration 2025/907188/07. Steinkopf, Northern Cape, South Africa.</span>
-    <span><a href="terms.pdf">Terms and Conditions</a></span>
+    <span><a href="Pro_Active_App_Guide.pdf">App guide</a> &nbsp; <a href="terms.pdf">Terms and Conditions</a></span>
   </div>
 </footer>
 
+<script>
+/* Black Friday banner: shows 23 to 29 November 2026 (SAST) only */
+(function(){var n=Date.now(),a=Date.parse('2026-11-20T00:00:00+02:00'),b=Date.parse('2026-11-29T23:59:59+02:00');if(n>=a&&n<=b){var e=document.getElementById('bf');if(e)e.hidden=false}})();
+</script>
 <script>
 /* Risk matrix: x = likelihood, y = severity (5 at top) */
 (function(){
